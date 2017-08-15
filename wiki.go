@@ -74,6 +74,7 @@ func (s *Server) Route() {
 
 	article := &controller.Article{DB: s.db}
 	user := &controller.User{DB: s.db}
+	comment := &controller.Comment{DB: s.db}
 
 	mux.Handle("/authtest", GET(Auth(controller.AuthTestHandler)))
 	mux.Handle("/new", GET(controller.NewArticleHandler))
@@ -88,6 +89,6 @@ func (s *Server) Route() {
 	mux.Handle("/login", handler(user.LoginHandler))
 	mux.Handle("/static", http.FileServer(http.Dir("./static")))
 	
-	mux.Handle("/new/comment", POST(Auth(article.CommentSave)))
+	mux.Handle("/new/comment", POST(Auth(comment.CommentSave)))
 	s.mux = mux
 }
