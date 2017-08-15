@@ -17,8 +17,8 @@ import (
 	"net/http"
 	"runtime/debug"
 
-	"github.com/suzuken/wiki/controller"
-	"github.com/suzuken/wiki/httputil"
+	"github.com/shimokp/wiki/controller"
+	"github.com/shimokp/wiki/httputil"
 )
 
 var errUnauthrized = errors.New("unauthorized")

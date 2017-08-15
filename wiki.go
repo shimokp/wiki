@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/suzuken/wiki/controller"
-	"github.com/suzuken/wiki/db"
-	"github.com/suzuken/wiki/view"
+	"github.com/shimokp/wiki/controller"
+	"github.com/shimokp/wiki/db"
+	"github.com/shimokp/wiki/view"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/context"

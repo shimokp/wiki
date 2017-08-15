@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/suzuken/wiki/controller"
+	"github.com/shimokp/wiki/controller"
 )
 
 type testHandler func(w http.ResponseWriter, r *http.Request) error

@@ -17,8 +17,8 @@ import (
 type Comment struct {
 	DB *sql.DB
 }
-var comments map[int64] Comment
 
+var comments map[int64] Comment
 
 func (t *Article) CommentSave(w http.ResponseWriter, r *http.Request) error {
 
@@ -37,9 +37,9 @@ func (t *Article) CommentSave(w http.ResponseWriter, r *http.Request) error {
 	//log.Printf("%#v", sess)
 	//log.Printf("%#v", sess.Values["id"])
 
-	comments[aid] = Comment{sess.Values["id"].(int64), body}
+	//comments[aid] = Comment{sess.Values["id"].(int64), body}
 
-	log.Printf("comments: %#v", comments)
+	//log.Printf("comments: %#v", comments)
 
 	http.Redirect(w, r, fmt.Sprintf("/article/%s", id), 301)
 

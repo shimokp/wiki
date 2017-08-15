@@ -4,7 +4,7 @@ Example implementation of wiki.
 
 ## How to run
 
-    go get github.com/suzuken/wiki
+    go get github.com/shimokp/wiki
     wiki
 
 or
@@ -39,7 +39,7 @@ Originally from [gin-boilerplate](https://github.com/voyagegroup/gin-boilerplate
 
 ## Author
 
-Kenta SUZUKI a.k.a. suzuken
+Kenta SUZUKI a.k.a. shimokp
 
 ## LICENSE
 

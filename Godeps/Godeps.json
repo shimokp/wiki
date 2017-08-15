@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/suzuken/wiki",
+	"ImportPath": "github.com/shimokp/wiki",
 	"GoVersion": "go1.7",
 	"GodepVersion": "v66",
 	"Deps": [

@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/suzuken/wiki/httputil"
-	"github.com/suzuken/wiki/model"
-	"github.com/suzuken/wiki/view"
+	"github.com/shimokp/wiki/httputil"
+	"github.com/shimokp/wiki/model"
+	"github.com/shimokp/wiki/view"
 )
 
 

@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/csrf"
-	"github.com/suzuken/wiki/view"
+	"github.com/shimokp/wiki/view"
 )
 
 func AuthTestHandler(w http.ResponseWriter, _ *http.Request) error {

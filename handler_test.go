@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/suzuken/wiki"
+	"github.com/shimokp/wiki"
 )
 
 func TestGETHandler(t *testing.T) {
