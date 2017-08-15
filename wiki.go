@@ -87,5 +87,7 @@ func (s *Server) Route() {
 	mux.Handle("/signup", handler(user.SignupHandler))
 	mux.Handle("/login", handler(user.LoginHandler))
 	mux.Handle("/static", http.FileServer(http.Dir("./static")))
+	
+	mux.Handle("/new/comment", POST(Auth(article.CommentSave)))
 	s.mux = mux
 }

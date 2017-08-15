@@ -20,6 +20,15 @@
             <p><a href="/article/edit/{{.article.ID}}">edit this</a></p>
             {{end}}
         </article>
+        <hr>
+        <form action="/new/comment" method="POST">
+            <h2>Comment</h2>
+            {{ template "csrf-hidden" . }}
+            <input type="hidden" name="id" value="{{.article.ID}}">
+            <label for="body">Body</label>
+            <textarea class="form-control" name="body" cols="30" rows="10"></textarea>
+            <button class="btn btn-default text-right" type="submit" value="Update">Post</button>
+        </form>
     {{ template "footer" .}}
     </div>
 </body>
