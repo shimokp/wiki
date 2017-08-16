@@ -2,7 +2,10 @@
 
 package model
 
-import "database/sql"
+import (
+	"database/sql"
+	"log"
+)
 
 func ScanUser(r *sql.Row) (User, error) {
 	var s User
@@ -77,6 +80,47 @@ func ScanArticles(rs *sql.Rows) ([]Article, error) {
 	if err = rs.Err(); err != nil {
 		return nil, err
 	}
+	return structs, nil
+}
+
+func ScanComment(r *sql.Row) (Comment, error) {
+	var s Comment
+	if err := r.Scan(
+		&s.ID,
+		&s.UserID,
+		&s.ArticleID,
+		&s.Body,
+		&s.Created,
+		&s.Updated,
+	); err != nil {
+		return Comment{}, err
+	}
+	return s, nil
+}
+
+func ScanComments(rs *sql.Rows) ([]Comment, error) {
+	structs := make([]Comment, 0, 16)
+	var err error
+	for rs.Next() {
+		var s Comment
+		if err = rs.Scan(
+			&s.ID,
+			&s.UserID,
+			&s.ArticleID,
+			&s.Body,
+			&s.Created,
+			&s.Updated,
+		); err != nil {
+			return nil, err
+		}
+		structs = append(structs, s)
+	}
+	if err = rs.Err(); err != nil {
+		return nil, err
+	}
+
+	log.Printf("%#v", structs)
+
 	return structs, nil
 }
 

@@ -14,7 +14,7 @@ type Comment struct {
 	DB *sql.DB
 }
 
-var comments map[int64] Comment
+//var comments map[int64] Comment
 
 func (t *Comment) CommentSave(w http.ResponseWriter, r *http.Request) error {
 
@@ -26,7 +26,7 @@ func (t *Comment) CommentSave(w http.ResponseWriter, r *http.Request) error {
 	log.Println("body", body)
 	log.Println("aid", aid)
 
-	comments = make(map[int64]Comment)
+	//comments = make(map[int64]Comment)
 
 	sess, _ := sessions.Get(r, "user")
 

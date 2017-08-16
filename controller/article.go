@@ -45,9 +45,15 @@ func (t *Article) Get(w http.ResponseWriter, r *http.Request) error {
 	if err != nil {
 		return err
 	}
+	//log.Printf("%#v", article.ID)
+	comments, err := model.CommentsAll(t.DB, article.ID)
+
+	//log.Printf("comments: %#v", comments)
+
 	return view.Default(w, r, http.StatusOK, "article.tmpl", map[string]interface{}{
 		"title":   fmt.Sprintf("%s - go-wiki", article.Title),
 		"article": article,
+		"comments": comments,
 	})
 }
 

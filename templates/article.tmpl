@@ -21,6 +21,12 @@
             {{end}}
         </article>
         <hr>
+        {{range .comments}}
+
+            <h3>{{ .Body }}</h3>
+            <p><strong>Created: </strong>{{ .Created }}  <strong>Updated: </strong>{{ .Updated }}</p>
+        <hr>
+        {{ end }}
         <form action="/new/comment" method="POST">
             <h2>Comment</h2>
             {{ template "csrf-hidden" . }}

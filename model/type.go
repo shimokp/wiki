@@ -25,7 +25,10 @@ type Article struct {
 }
 
 type Comment struct {
+	ID int64			`json:"id"`
 	UserID int64		`json:"user_id"`
 	ArticleID int64		`json:"article_id"`
 	Body string			`json:"body"`
+	Created *time.Time  `json:"created"`
+	Updated *time.Time  `json:"updated"`
 }

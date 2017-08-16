@@ -1,6 +1,8 @@
 package model
 
-import "database/sql"
+import (
+	"database/sql"
+)
 
 func (c *Comment) Insert(tx *sql.Tx) (sql.Result, error) {
 	stmt, err := tx.Prepare(`
@@ -12,4 +14,13 @@ func (c *Comment) Insert(tx *sql.Tx) (sql.Result, error) {
 	}
 	defer stmt.Close()
 	return stmt.Exec(c.UserID, c.ArticleID, c.Body)
+}
+
+// ArticlesAll returns all articles.
+func CommentsAll(db *sql.DB, id int64) ([]Comment, error) {
+	rows, err := db.Query(`select * from comments where article_id=?`, id)
+	if err != nil {
+		return nil, err
+	}
+	return ScanComments(rows)
 }
