@@ -90,5 +90,6 @@ func (s *Server) Route() {
 	mux.Handle("/static", http.FileServer(http.Dir("./static")))
 	
 	mux.Handle("/new/comment", POST(Auth(comment.CommentSave)))
+	mux.Handle("/delete/comment", POST(Auth(comment.CommentDelete)))
 	s.mux = mux
 }

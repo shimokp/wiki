@@ -21,10 +21,17 @@
             {{end}}
         </article>
         <hr>
+        {{ $temp := . }}
         {{range .comments}}
 
             <h3>{{ .Body }}</h3>
             <p><strong>Created: </strong>{{ .Created }}  <strong>Updated: </strong>{{ .Updated }}</p>
+            <form action="/delete/comment" method="POST">
+                {{ template "csrf-hidden" $temp }}
+                <input type="hidden", name="id", value="{{ .ID }}">
+                <input type="hidden", name="article_id", value="{{ $temp.article.ID }}">
+                <button class="btn btn-danger" type="submit" value="Delete">Delete this comment</button>
+            </form>
         <hr>
         {{ end }}
         <form action="/new/comment" method="POST">

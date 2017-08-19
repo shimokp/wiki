@@ -4,7 +4,6 @@ package model
 
 import (
 	"database/sql"
-	"log"
 )
 
 func ScanUser(r *sql.Row) (User, error) {
@@ -119,7 +118,7 @@ func ScanComments(rs *sql.Rows) ([]Comment, error) {
 		return nil, err
 	}
 
-	log.Printf("%#v", structs)
+	//log.Printf("%#v", structs)
 
 	return structs, nil
 }

@@ -11,17 +11,13 @@
             <header>
                 <h2>latest articles</h2>
             </header>
-            <ul>
             {{range .articles}}
-                <li>
-                    <a href="/article/{{.ID}}">{{ .Title }}</a>
-                    <p>posted on {{ .Created }}</p>
-                    <p>updated {{ .Updated }}</p>
-                </li>
+                <strong><a href="/article/{{.ID}}">{{ .Title }}</a></strong>
+                <p><strong>posted on</strong> {{ .Created }}　　　<strong>updated</strong> {{ .Updated }}</p>
             {{end}}
             </ul>
         </article>
     {{ template "footer" .}}
-    </div>
+    </div>a
 </body>
 </html>
